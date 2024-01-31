@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_certificate_type,certificate.type,model_certificate_type,,1,1,1,1
+access_certificate_details,certificate.details,model_certificate_details,,1,1,1,1
+access_training_type,training.type,model_training_type,,1,1,1,1
+access_training_details,training.details,model_training_details,,1,1,1,1
+access_registred_drones,registred.drones,model_registred_drones,,1,1,1,1

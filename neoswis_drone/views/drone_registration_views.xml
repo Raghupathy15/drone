@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- Form View -->
+		<record id="drone_registration_form_view" model="ir.ui.view">
+			<field name="name">drone.registration.form</field>
+			<field name="model">drone.registration</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="licence_no"/>
+								<field name="customer_id"/>
+								<field name="country_id"/>
+								<field name="attachment_ids" widget="many2many_binary" options="{'no_create': True}"/>
+							</group>
+							<group>
+								<field name="registration_date"/>
+								<field name="expiry_date"/>
+								<field name="mfg_name"/>
+								<field name="model_no"/>
+							</group>
+						</group>
+						<div class="oe_chatter">
+							<field name="message_follower_ids"/>
+							<field name="activity_ids"/>
+							<field name="message_ids"/>
+						</div>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree View -->
+		<record id="drone_registration_tree_view" model="ir.ui.view">
+			<field name="name">drone.registration.tree</field>
+			<field name="model">drone.registration</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="licence_no"/>
+					<field name="customer_id"/>
+					<field name="registration_date"/>
+					<field name="expiry_date"/>
+					<field name="mfg_name"/>
+					<field name="model_no"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Search View -->
+		<!-- <record id="drone_registration_search_view" model="ir.ui.view">
+			<field name="name">expense.reimbursement.search</field>
+			<field name="model">expense.reimbursement</field>
+			<field name="arch" type="xml">
+				<search string="Search Expenses">
+					
+					<filter string="My Expenses" name="employee_id" domain="[('create_uid', '=', uid)]"/>
+					<separator/>
+					<filter name="state" string="Draft" domain="[('state', '=', 'draft')]"/>
+					<filter name="state" string="Waiting for LM Approval" domain="[('state', '=', 'wfa')]"/>
+					<filter name="state" string="LM Approved" domain="[('state', '=', 'lm_approved')]"/>
+					<filter name="state" string="Waiting for MD Approval" domain="[('state', '=', 'wfa_md')]"/>
+					<filter name="state" string="MD Approved" domain="[('state', '=', 'md_approved')]"/>
+					<filter name="state" string="Rejected" domain="[('state', '=', 'rejected')]"/>
+					
+					<group expand="0" string="Group By">
+						<filter string="Date" name="create_date" domain="[]" context="{'group_by': 'create_date'}"/>
+						<field name="expense_type" string="Expense Type" context="{'group_by': 'expense_type'}"/>
+						<filter string="Employee" name="employee_id" domain="[]" context="{'group_by': 'employee_id'}"/>
+						<filter string="Line Manager" name="line_manager_id" domain="[]" context="{'group_by': 'line_manager_id'}"/>
+						<filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+					</group>
+				</search>
+			</field>
+		</record> -->
+
+		<!-- Action  -->
+		<record id="drone_registration_act_window" model="ir.actions.act_window">
+			<field name="name">Drone Registration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">drone.registration</field>
+			<field name="view_mode">tree,form,search</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click create to add new Drone Registration.
+				</p>
+			</field>
+		</record>
+
+		<!-- Menuitem -->
+		<menuitem name="Drone Registration" id="menu_drone_degistration" sequence="3" web_icon="neoswis_drone,static/description/module_icon.png"/>
+		<menuitem name="Drone Registration" id="sub_drone_registration" parent="menu_drone_degistration" action="drone_registration_act_window" sequence="1"/>
+
+	</data>
+</odoo>
